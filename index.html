@@ -1,1 +1,156 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="./png/favicon.png">
+    <title>CSS @font-face {...}</title>
+    <link rel="stylesheet/less" type="text/css" href="./styles/main.less"/>
+    <link rel="stylesheet/less" type="text/css" href="./styles/sections/fonts.less"/>
+    <link rel="stylesheet/less" type="text/css" href="./styles/sections/options.less"/>
+    <link rel="stylesheet/less" type="text/css" href="./styles/sections/code.less"/>
+    <link rel="stylesheet/less" type="text/css" href="./styles/token.less"/>
+    <script src="https://cdn.jsdelivr.net/npm/less"></script>
+    <script src="./js/main.js" type="module" defer></script>
+    <script src="./js/options.js" type="module" defer></script>
+</head>
+<body>
+    <input id="file-upload" hidden type="file" multiple>
+    <!-- files section -->
+    <section class="fonts">
+        <header>
+            <span class="title">Font Files</span>
+            <div class="buttons">
+                <input id="button-file-upload" type="button" data-type="success" value="Upload" title="Upload file">
+                <input id="button-file-refresh" type="button" data-type="default" value="Refresh" title="Refresh files">
+                <input id="button-files-remove" type="button" data-type="remove" value="Remove All" title="Remove all files">
+            </div>
+        </header>
+        <ul id="font-list" class="font-list">
+            <!-- <li class="font">
+                <input class="name" type="text" spellcheck="false">
+                <select class="font-style">
+                    <option value="normal">Normal</option>
+                    <option value="italic">Italic</option>
+                    <option value="oblique">Oblique</option>
+                </select>
+                <input class="button-remove" type="button" value="Remove">
+            </li> -->
+        </ul>
+    </section>
+    <!-- options section -->
+    <section class="options">
+        <header>
+            <span class="title">Options</span>
+        </header>
+        <ul id="options-list" class="options-list">
+            <li class="option" data-key="file-name">
+                <span class="title">File Name</span>
+                <span class="description">The name of the file to download.</span>
+                <input class="value" type="text" value="Font.css" spellcheck="false">
+            </li>
+            <li class="option" data-key="font-family">
+                <span class="title">Font Family</span>
+                <span class="description">The name for your Font Family.</span>
+                <input class="value" type="text" value="Font" spellcheck="false">
+            </li>
+            <li class="option" data-key="path">
+                <span class="title">Path</span>
+                <span class="description">The path to your font files.</span>
+                <input class="value" type="text" value="./" spellcheck="false">
+            </li>
+            <li class="option" data-key="regexp-normal">
+                <span class="title">Normal</span>
+                <span class="description">RegExp string to search for normal style in font file names.</span>
+                <input class="value" type="text" value="/normal/gmi" spellcheck="false">
+            </li>
+            <li class="option" data-key="regexp-italic">
+                <span class="title">Italic</span>
+                <span class="description">RegExp string to search for italic style in font file names.</span>
+                <input class="value" type="text" value="/italic/gmi" spellcheck="false">
+            </li>
+            <li class="option" data-key="regexp-oblique">
+                <span class="title">Oblique</span>
+                <span class="description">RegExp string to search for oblique style in font file names.</span>
+                <input class="value" type="text" value="/oblique/gmi" spellcheck="false">
+            </li>
+            <li class="option" data-key="regexp-font-weight-100">
+                <span class="title">Font Weight 100 (Thin)</span>
+                <span class="description">RegExp string to search for font weight 100 in font file names.</span>
+                <input class="value" type="text" value="/100|thin/gmi" spellcheck="false">
+            </li>
+            <li class="option" data-key="regexp-font-weight-200">
+                <span class="title">Font Weight 200 (Extra Light)</span>
+                <span class="description">RegExp string to search for font weight 200 in font file names.</span>
+                <input class="value" type="text" value="/200|extralight|ultralight/gmi" spellcheck="false">
+            </li>
+            <li class="option" data-key="regexp-font-weight-300">
+                <span class="title">Font Weight 300 (Light)</span>
+                <span class="description">RegExp string to search for font weight 300 in font file names.</span>
+                <input class="value" type="text" value="/300|light/gmi" spellcheck="false">
+            </li>
+            <li class="option" data-key="regexp-font-weight-400">
+                <span class="title">Font Weight 400 (Normal)</span>
+                <span class="description">RegExp string to search for font weight 400 in font file names.</span>
+                <input class="value" type="text" value="/400|normal/gmi" spellcheck="false">
+            </li>
+            <li class="option" data-key="regexp-font-weight-500">
+                <span class="title">Font Weight 500 (Medium)</span>
+                <span class="description">RegExp string to search for font weight 500 in font file names.</span>
+                <input class="value" type="text" value="/500|medium/gmi" spellcheck="false">
+            </li>
+            <li class="option" data-key="regexp-font-weight-600">
+                <span class="title">Font Weight 600 (Semi Bold)</span>
+                <span class="description">RegExp string to search for font weight 600 in font file names.</span>
+                <input class="value" type="text" value="/600|semibold|demibold/gmi" spellcheck="false">
+            </li>
+            <li class="option" data-key="regexp-font-weight-700">
+                <span class="title">Font Weight 700 (Bold)</span>
+                <span class="description">RegExp string to search for font weight 700 in font file names.</span>
+                <input class="value" type="text" value="/700|bold/gmi" spellcheck="false">
+            </li>
+            <li class="option" data-key="regexp-font-weight-800">
+                <span class="title">Font Weight 800 (Extra Bold)</span>
+                <span class="description">RegExp string to search for font weight 800 in font file names.</span>
+                <input class="value" type="text" value="/800|extrabold|ultrabold/gmi" spellcheck="false">
+            </li>
+            <li class="option" data-key="regexp-font-weight-900">
+                <span class="title">Font Weight 900 (Black)</span>
+                <span class="description">RegExp string to search for font weight 900 in font file names.</span>
+                <input class="value" type="text" value="/900|black|heavy/gmi" spellcheck="false">
+            </li>
+            <li class="option" data-key="sort-font">
+                <span class="title">Sort Fonts</span>
+                <span class="description">Sort fonts by Name/Style/Weight.</span>
+                <select class="value">
+                    <option value="name" selected>Font-Name</option>
+                    <option value="name-reverse">Font-Name (reverse)</option>
+                    <option value="style">Font-Style</option>
+                    <option value="style-reverse">Font-Style (reverse)</option>
+                    <option value="weight">Font-Weight</option>
+                    <option value="weight-reverse">Font-Weight (reverse)</option>
+                </select>
+            </li>
+            <li class="option" data-key="comments">
+                <span class="title">Comments</span>
+                <span class="description">Defines how comments are generated.</span>
+                <select class="value">
+                    <option value="none">None</option>
+                    <option value="minimal" selected>Minimal</option>
+                    <option value="all">All</option>
+                </select>
+            </li>
+        </ul>
+    </section>
+    <!-- code section -->
+    <section class="code">
+        <header>
+            <span class="title">@font-face {...}</span>
+            <div class="buttons">
+                <input id="button-copy-to-clipboard" type="button" data-type="default" value="Copy" title="Copy to clipboard">
+                <input id="button-file-download" type="button" data-type="success" value="Download" title="Download file">
+            </div>
+        </header>
+        <pre id="code-block" class="code-block"></pre>
+    </section>
+</body>
+</html>
