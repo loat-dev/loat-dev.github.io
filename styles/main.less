@@ -1,0 +1,108 @@
+@import './colors.less';
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+  font-weight: 300;
+  color-scheme: dark;
+  list-style: none;
+}
+
+body {
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    background-color: @background-color;
+
+    section {
+        margin: 3vh 20vw 0;
+        border-radius: 6px;
+        border: 1px solid @section-border-color;
+        overflow: hidden;
+
+        &:first-of-type {
+            margin-top: 5vh;
+        }
+
+        &:last-of-type {
+            margin-bottom: 5vh;
+        }
+
+        header {
+            display: flex;
+            padding: 20px;
+            justify-content: space-between;
+            align-items: center;
+            background-color: @header-background-color;
+            user-select: none;
+
+            .title {
+                font-weight: 600;
+                color: @text-secondary-color;
+            }
+
+            .buttons {
+                display: flex;
+                gap: 8px;
+
+                input {
+                    height: 30px;
+                    padding: 0 7px 1px;
+                    font-size: 15px;
+                    font-weight: 600;
+                    outline: none;
+                    border-radius: 6px;
+                    border: 1px solid @border-color;
+                    color: @text-primary-color;
+                    cursor: pointer;
+
+                    &[data-type="default"] {
+                        background-color: @button-background-color;
+                    }
+
+                    &[data-type="success"] {
+                        background-color: @button-background-success-color;
+                    }
+
+                    &[data-type="remove"] {
+                        background-color: @button-background-remove-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+input[type="text"] {
+    padding: 0 5px 2px;
+    height: 25px;
+    font-weight: 400;
+    font-family: monospace, sans-serif;
+    outline: none;
+    border-radius: 6px;
+    border: 1px solid @border-color;
+    background-color: @text-background-color;
+
+    &::selection {
+        background-color: @text-selection-color;
+    }
+}
+
+select {
+    padding: 0 5px 2px;
+    height: 25px;
+    font-weight: 400;
+    font-family: monospace, sans-serif;
+    outline: none;
+    border-radius: 6px;
+    border: 1px solid @border-color;
+    background-color: @button-background-color;
+    cursor: pointer;
+
+    option {
+        font-family: monospace, sans-serif;
+    }
+}
